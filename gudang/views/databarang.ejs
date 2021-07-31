@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Data barang</title>
+  </head>
+  <body>
+    <%- include('partials/navbar', {title: "Data Barang"}); %>
+
+    
+    <div class="container">
+        <h5>DATA BARANG</h5>
+        <a href="tambahbarang" type="button" class="btn btn-success">Tambah barang</a>
+        <div class="row">
+            <div class="column">
+
+                <table class="table">
+                    <th>ID Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Stock </th>
+                    <th>Harga</th>
+                    <th>Menu</th>
+
+                    <% barang.forEach(data => { %>
+                     <tr>
+                         <td><%= data.id %> </td>
+                         <td><%= data.nama %> </td>
+                         <td><%= data.stock %> </td>
+                         <td><%= data.harga %> </td>
+                         <td>
+                             <a href="" type="button" class="btn btn-primary">Edit</a>
+                             <a onclick="confirm('Anda yakin akan menghapus ?');" href="hapusbarang/<%= data.id %>" type="button" class="btn btn-danger">Hapus</a>
+                         </td>
+                     </tr>
+                    <% }) %>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+  </body>
+</html>

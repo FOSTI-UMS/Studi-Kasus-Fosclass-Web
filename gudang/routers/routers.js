@@ -17,4 +17,10 @@ routes.get('/biodata',Biodata.kirimBiodata)
 
 routes.get('/tambahbarang', Barang.TambahBarangView)
 
+routes.post('/tambahbarang', Barang.TambahBarang)
+
+routes.get('/databarang', Barang.DataBarangView)
+
+routes.get('/hapusbarang/:id', Barang.HapusBarang)
+
 module.exports = routes;
